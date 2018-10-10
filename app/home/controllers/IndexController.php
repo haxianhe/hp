@@ -14,10 +14,10 @@ class IndexController extends Controller
 {
     public function test()
     {
-        echo 'hello,world!';
+        return 'hello,world!';
     }
     public function haha()
     {
-        echo 'haha';
+        return 'haha';
     }
 }

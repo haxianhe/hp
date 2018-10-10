@@ -10,13 +10,8 @@ namespace core;
 
 class Controller
 {
-    public function __construct()
-    {
-        //$this->model = new Model();
-    }
-
     public function execute($action)
     {
-        $this->$action();
+        return $this->$action();
     }
 }

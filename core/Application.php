@@ -22,9 +22,9 @@ class Application
     {
         self::$router = new Router();
         $urlArray = self::$router->getUrlArray();  //获取经过路由类处理生成的路由数组
-        define('MODULE',$urlArray['module']);
-        define('CONTROLLER',$urlArray['controller']);
-        define('ACTION',$urlArray['action']);
+        define('MODULE', $urlArray['module']);
+        define('CONTROLLER', $urlArray['controller']);
+        define('ACTION', $urlArray['action']);
     }
 
     /*
@@ -33,13 +33,27 @@ class Application
     public static function execute()
     {
 
-        $className = MODULE.'\\'.'controllers'.'\\'.CONTROLLER.'Controller';
+        $className = MODULE . '\\' . 'controllers' . '\\' . CONTROLLER . 'Controller';
 
         $controller = new $className;    //实例化具体的控制器
         if (method_exists($controller, ACTION)) {
-            $controller->execute(ACTION);       //执行该方法
+            $data = [
+                'err_no' => 0,
+                'err_msg' => 'success',
+                'servertime' => time(),
+                'data' => null
+            ];
+
+            $data['data'] = $controller->execute(ACTION);       //执行该方法
+
+            header('Content-type: text/json;charset=UTF-8');
+            echo json_encode($data, JSON_UNESCAPED_UNICODE);
+            exit(0);
+
         } else {
-            die('The method does not exist');
+            ob_end_clean();
+            header("HTTP/1.1 404 Not Found");
+            exit;
         }
     }
 }
