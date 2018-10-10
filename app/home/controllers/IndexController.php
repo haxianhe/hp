@@ -1,12 +1,12 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: haxianhe
  * Date: 2018/10/10
- * Time: 下午2:27
+ * Time: 下午8:10
  */
-namespace index;
+
+namespace home\controllers;
 
 use core\Controller;
 
@@ -14,11 +14,10 @@ class IndexController extends Controller
 {
     public function test()
     {
-        $this->display('hello,world!');
+        echo 'hello,world!';
     }
     public function haha()
     {
-        $this->display('haha!');
+        echo 'haha';
     }
-
 }

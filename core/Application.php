@@ -10,28 +10,36 @@ namespace core;
 
 class Application
 {
-    public $controller;
-    public $action;
+    public static $router;      //路由实例
 
-    public function run()
+    public static function run()
     {
-        $controller = isset($_GET['controller']) ? $_GET['controller'] : "index";
-        $action = isset($_GET['action']) ? $_GET['action'] : "index";
+        self::router();
+        self::execute();
+    }
 
-        //拼接控制器文件路径
-        $controller_file = APP_PATH . 'index' . DS . $controller . 'Controller.php';
-        if (file_exists($controller_file)) {
-            require $controller_file;
-        }
+    public static function router()
+    {
+        self::$router = new Router();
+        $urlArray = self::$router->getUrlArray();  //获取经过路由类处理生成的路由数组
+        define('MODULE',$urlArray['module']);
+        define('CONTROLLER',$urlArray['controller']);
+        define('ACTION',$urlArray['action']);
+    }
 
-        $className='index\IndexController';
-        $className = str_replace('IndexController', $controller . 'Controller', $className);
+    /*
+     * 程序开始执行，路由分发
+     */
+    public static function execute()
+    {
+
+        $className = MODULE.'\\'.'controllers'.'\\'.CONTROLLER.'Controller';
+
         $controller = new $className;    //实例化具体的控制器
-        if (method_exists($controller, $action)) {
-            $controller->$action();        //执行该方法
+        if (method_exists($controller, ACTION)) {
+            $controller->execute(ACTION);       //执行该方法
         } else {
             die('The method does not exist');
         }
-
     }
 }
