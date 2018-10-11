@@ -14,23 +14,24 @@ class Application
 
     public static function run()
     {
-        self::router();
-        self::execute();
+        self::execute(self::router());
     }
 
     public static function router()
     {
         self::$router = new Router();
         $urlArray = self::$router->getUrlArray();  //获取经过路由类处理生成的路由数组
+        $params = self::$router->getParams();     //获取经过路由类处理得到的请求参数
         define('MODULE', $urlArray['module']);
         define('CONTROLLER', $urlArray['controller']);
         define('ACTION', $urlArray['action']);
+        return $params;
     }
 
     /*
      * 程序开始执行，路由分发
      */
-    public static function execute()
+    public static function execute($params)
     {
 
         $className = MODULE . '\\' . 'controllers' . '\\' . CONTROLLER . 'Controller';
@@ -44,7 +45,7 @@ class Application
                 'data' => null
             ];
 
-            $data['data'] = $controller->execute(ACTION);       //执行该方法
+            $data['data'] = $controller->execute(ACTION,$params);       //执行该方法
 
             header('Content-type: text/json;charset=UTF-8');
             echo json_encode($data, JSON_UNESCAPED_UNICODE);

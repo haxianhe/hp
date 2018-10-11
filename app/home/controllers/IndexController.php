@@ -12,12 +12,12 @@ use core\Controller;
 
 class IndexController extends Controller
 {
-    public function test()
+    public function test($params)
     {
-        return 'hello,world!';
+        return $params;
     }
-    public function haha()
+    public function haha($params)
     {
-        return 'haha';
+        return $params;
     }
 }

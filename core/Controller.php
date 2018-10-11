@@ -10,8 +10,8 @@ namespace core;
 
 class Controller
 {
-    public function execute($action)
+    public function execute($action,$params)
     {
-        return $this->$action();
+        return $this->$action($params);
     }
 }
