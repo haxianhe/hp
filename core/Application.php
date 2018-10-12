@@ -14,14 +14,25 @@ class Application
 
     public static function run()
     {
+        self::setHeader();
         self::execute(self::router());
+    }
+
+    /**
+     * 设置字符编码
+     */
+    private static function setHeader()
+    {
+        header('Content-type: text/json;charset=UTF-8');
+        // 最多支持这么多请求方式
+        header("Access-Control-Allow-Methods: GET, POST");
     }
 
     public static function router()
     {
         self::$router = new Router();
         $urlArray = self::$router->getUrlArray();  //获取经过路由类处理生成的路由数组
-        $params = self::$router->getParams();     //获取经过路由类处理得到的请求参数
+        $params = self::$router->getParams();      //获取经过路由类处理得到的请求参数
         define('MODULE', $urlArray['module']);
         define('CONTROLLER', $urlArray['controller']);
         define('ACTION', $urlArray['action']);

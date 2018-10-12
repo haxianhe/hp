@@ -17,10 +17,12 @@ class Router
     public $url;    //url串
     public $router_url; //url数组
     public $params; //请求参数
+    public $method; //请求方式
 
     function __construct()
     {
         $this->url = parse_url($_SERVER['REQUEST_URI']);
+        $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
     /*
@@ -37,8 +39,12 @@ class Router
      */
     public function getParams()
     {
-        $this->getGetParams();
-        return $this->params;
+        if ($this->method == 'GET') {
+            $this->getGetParams();
+        } else {
+            $this->getPostParams();
+        }
+        return array_merge($this->params,$_GET,$_POST);
     }
 
     /*
@@ -90,5 +96,13 @@ class Router
         } else {
             $this->params = [];
         }
+    }
+
+    /*
+     * 获取post请求参数
+     */
+    public function getPostParams()
+    {
+        $this->params = json_decode(file_get_contents('php://input'), true)??[];
     }
 }
