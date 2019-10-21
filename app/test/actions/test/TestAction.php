@@ -6,7 +6,11 @@
  * Date: 2019/2/2
  * Time: 1:47 PM
  */
-class Action_TestNewController extends HpLib_Base_ActionBase
+namespace test\actions\test;
+
+use base\ActionBase;
+
+class TestAction extends ActionBase
 {
     public function MyExecute($arrRequest)
     {
