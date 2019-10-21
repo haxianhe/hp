@@ -37,7 +37,7 @@
 
 http://127.0.0.1:8888/test/test/testaction
 
-分别对应不同内容
+![](https://raw.githubusercontent.com/haxianhe/pic/master/image/20191021221629.png)
 
 路由风格：pathinfo风格
  
