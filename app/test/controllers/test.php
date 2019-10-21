@@ -9,10 +9,11 @@
 namespace test\controllers;
 
 use core\Controller;
+use test\actions\test\TestAction;
 
-class Controller_Test extends Controller
+class test extends Controller
 {
     public $actions = [
-        'testnewcontroller' => 'actions/test/testnewcontroller.php'
+        'testaction' => TestAction::class
     ];
 }

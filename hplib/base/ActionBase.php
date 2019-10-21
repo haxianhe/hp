@@ -6,7 +6,9 @@
  * Date: 2019/2/2
  * Time: 2:03 PM
  */
-abstract class HpLib_Base_ActionBase
+namespace base;
+
+abstract class ActionBase
 {
     abstract public function myExecute($arrRequest);
 
@@ -25,7 +27,6 @@ abstract class HpLib_Base_ActionBase
         $arrRequest = $this->beforeExec($arrRequest);
         $res = $this->myExecute($arrRequest);
         $res = $this->afterExec($res);
-        header('Content-type: text/json');
-        echo json_encode($res);
+        return $res;
     }
 }

@@ -14,7 +14,6 @@ class TestAction extends ActionBase
 {
     public function MyExecute($arrRequest)
     {
-        var_dump('action层');
-        exit;
+        return 123;
     }
 }
