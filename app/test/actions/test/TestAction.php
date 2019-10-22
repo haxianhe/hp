@@ -9,11 +9,13 @@
 namespace test\actions\test;
 
 use base\ActionBase;
+use test\service\page\TestPage;
 
 class TestAction extends ActionBase
 {
-    public function MyExecute($arrRequest)
+    public function executeFunc($arrInput)
     {
-        return 123;
+        $pageObj = new TestPage();
+        return $pageObj->execute($arrInput);
     }
 }

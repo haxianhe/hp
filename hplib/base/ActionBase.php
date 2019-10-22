@@ -10,23 +10,23 @@ namespace base;
 
 abstract class ActionBase
 {
-    abstract public function myExecute($arrRequest);
+    public function execute($arrRequest)
+    {
+        $arrRequest = $this->beforeExec($arrRequest);
+        $res = $this->executeFunc($arrRequest);
+        $res = $this->afterExec($res);
+        return $res;
+    }
 
     protected function beforeExec($arrRequest)
     {
         return $arrRequest;
     }
 
+    abstract public function executeFunc($arrRequest);
+
     protected function afterExec($res)
     {
-        return $res;
-    }
-
-    public function execute($arrRequest)
-    {
-        $arrRequest = $this->beforeExec($arrRequest);
-        $res = $this->myExecute($arrRequest);
-        $res = $this->afterExec($res);
         return $res;
     }
 }

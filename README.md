@@ -22,16 +22,13 @@
 │       ├── AutoLoader.php
 │       ├── Controller.php
 │       └── Router.php
-├── log
 └── webroot
     └── test
         └── index.php
 
-10 directories, 12 files
+10 directories, 11 files
 
 ```
-
-一个框架的核心是路由转发，最好这一点，那这个框架就不会太差
 
 测试路径：       
 

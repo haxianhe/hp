@@ -10,7 +10,6 @@ namespace core;
 
 class Application
 {
-    public static $router;      //路由实例
     public static $action;      //控制器配置
     public static $params;
 
@@ -22,13 +21,14 @@ class Application
 
     public static function router()
     {
-        self::$router = new Router();
-        $urlArray = self::$router->getUrlArray();  //获取经过路由类处理生成的路由数组
-        self::$params = self::$router->getParams();      //获取经过路由类处理得到的请求参数
+        $router = new Router();
+
+        $urlArray = $router->getUrlArray();  //获取经过路由类处理生成的路由数组
         define('MODULE', $urlArray['module']);
         define('CONTROLLER', $urlArray['controller']);
         define('ACTION', $urlArray['action']);
-//        return $params;
+
+        self::$params = $router->getParams();      //获取经过路由类处理得到的请求参数
     }
 
     /*
@@ -40,7 +40,7 @@ class Application
         $className = MODULE . '\\' . 'controllers' . '\\' . CONTROLLER;
 
         $controllerObj = new $className;    //实例化具体的控制器
-//var_dump($controllerObj->getAction(ACTION));exit;
+
         $actionClassName = $controllerObj->getAction(ACTION);
         $actionObj = new $actionClassName;
 
