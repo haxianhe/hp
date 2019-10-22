@@ -23,3 +23,7 @@ $loader->register();    //注册命名空间
 //设置请求头
 header('Content-type: text/json;charset=UTF-8');
 header("Access-Control-Allow-Methods: GET, POST");  // 最多支持这么多请求方式
+
+/**
+ * 根据hplib下的目录名以及app下的目录名注册命名空间
+ */
