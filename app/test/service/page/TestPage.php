@@ -8,13 +8,19 @@
  */
 namespace test\service\page;
 
+use test\service\data\TestData;
+
 class TestPage
 {
     public function execute($arrInput)
     {
+        $objData = new TestData();
+        $time = $objData->getTime();
+
         return [
             'test_id' => '201910221032',
-            'test_name' => '测试'
+            'test_name' => '测试',
+            'test_time' => $time
         ];
     }
 }
