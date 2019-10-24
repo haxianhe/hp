@@ -13,9 +13,9 @@ use PDO;
 class MySql
 {
     private static $servername = "localhost";
-    private static $username = "root";
-    private static $password = "mysqlHxh08";
-    private static $dbname = 'hp';
+    private static $username = "";
+    private static $password = "";
+    private static $dbname = "";
 
     private static $conn = null;
 
