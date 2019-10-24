@@ -53,7 +53,7 @@ class MySql
     {
         $result = self::$conn->query($sql);
         $rows = [];
-        while ($row = $result->fetch()){
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)){
             $rows[] = $row;
         }
         return $rows;

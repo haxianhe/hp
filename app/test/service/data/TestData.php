@@ -23,6 +23,7 @@ class TestData
 //        ];
 //        return MySql::batchInsert($sqlArray);
         $sql = "SELECT * FROM hp_user";
-        return MySql::findRows($sql);
+        $rows =  MySql::findRows($sql);
+        return $rows;
     }
 }
