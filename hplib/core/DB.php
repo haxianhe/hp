@@ -10,7 +10,7 @@ namespace core;
 
 use PDO;
 
-class MySql
+class DB
 {
     private static $servername = "localhost";
     private static $username = "";

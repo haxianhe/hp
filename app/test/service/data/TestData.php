@@ -9,13 +9,13 @@
 
 namespace test\service\data;
 
-use core\MySql;
+use core\DB;
 
 class TestData
 {
     public function getTime()
     {
-        MySql::getConnect();
+        DB::getConnect();
 //        return MySql::insert("INSERT INTO hp_user(name, password) VALUE('hello', '123')");
 //        $sqlArray = [
 //            "INSERT INTO hp_user(name, password) VALUE('hello', '123')",
@@ -23,7 +23,7 @@ class TestData
 //        ];
 //        return MySql::batchInsert($sqlArray);
         $sql = "SELECT * FROM hp_user";
-        $rows =  MySql::findRows($sql);
+        $rows =  DB::findRows($sql);
         return $rows;
     }
 }
