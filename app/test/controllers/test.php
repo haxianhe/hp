@@ -14,6 +14,6 @@ use test\actions\test\TestAction;
 class test extends Controller
 {
     public $actions = [
-        'testaction' => TestAction::class
+        'test' => TestAction::class
     ];
 }
