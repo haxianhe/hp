@@ -12,7 +12,7 @@ use PDO;
 
 class DB
 {
-    private static $servername = "";
+    private static $servername = "localhost";
     private static $username = "";
     private static $password = "";
     private static $dbname = "";
