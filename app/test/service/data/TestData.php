@@ -7,15 +7,14 @@
  * @Time: 10:37 AM
  */
 
-namespace test\service\data;
+namespace Test\Service\Data;
 
-use core\DB;
+use HpLib\Orm\HpUser;
 
 class TestData
 {
     public function getTime()
     {
-        DB::getConnect();
 //        return MySql::insert("INSERT INTO hp_user(name, password) VALUE('hello', '123')");
 //        $sqlArray = [
 //            "INSERT INTO hp_user(name, password) VALUE('hello', '123')",
@@ -23,7 +22,7 @@ class TestData
 //        ];
 //        return MySql::batchInsert($sqlArray);
         $sql = "SELECT * FROM hp_user";
-        $rows =  DB::findRows($sql);
+        $rows =  HpUser::findRows($sql);
         return $rows;
     }
 }

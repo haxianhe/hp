@@ -6,7 +6,7 @@
  * Date: 2019/2/2
  * Time: 2:03 PM
  */
-namespace base;
+namespace HpLib\Base;
 
 abstract class ActionBase
 {

@@ -6,7 +6,7 @@
  * Time: 下午4:12
  */
 
-namespace core;
+namespace HpLib\Core;
 
 /*
  * 路由类
@@ -44,7 +44,8 @@ class Router
         } else {
             $this->getPostParams();
         }
-        return array_merge($this->params,$_GET,$_POST);
+
+        return array_merge($this->params, $_GET, $_POST);
     }
 
     /*

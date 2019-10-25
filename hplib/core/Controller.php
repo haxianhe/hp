@@ -6,7 +6,7 @@
  * Time: 下午5:38
  */
 
-namespace core;
+namespace HpLib\Core;
 
 abstract class Controller
 {

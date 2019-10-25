@@ -5,7 +5,7 @@
  * Date: 2018/10/9
  * Time: 下午5:54
  */
-namespace core;     //定义命名空间
+namespace HpLib\Core;     //定义命名空间
 
 /**
  * 自动加载类
@@ -27,7 +27,7 @@ class AutoLoader
      */
     public static function register()
     {
-        spl_autoload_register('core\\AutoLoader::loadClass');
+        spl_autoload_register('HpLib\\Core\\AutoLoader::loadClass');
     }
 
     /**

@@ -6,10 +6,10 @@
  * Date: 2019/2/2
  * Time: 1:44 PM
  */
-namespace test\controllers;
+namespace Test\Controllers;
 
-use core\Controller;
-use test\actions\test\TestAction;
+use HpLib\Core\Controller;
+use Test\Actions\Test\TestAction;
 
 class test extends Controller
 {

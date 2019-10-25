@@ -13,7 +13,7 @@
 //加载框架引导文件
 //require ROOT_PATH . 'hplib/Start.php';
 
-require dirname(dirname(__DIR__)).'/hplib/Init.php';
+require dirname(__DIR__).'/hplib/Init.php';
 
 //框架初始化
 \HpLib\Init::init();

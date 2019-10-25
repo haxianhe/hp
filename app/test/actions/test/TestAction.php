@@ -6,10 +6,10 @@
  * Date: 2019/2/2
  * Time: 1:47 PM
  */
-namespace test\actions\test;
+namespace Test\Actions\Test;
 
-use base\ActionBase;
-use test\service\page\TestPage;
+use HpLib\Base\ActionBase;
+use Test\Service\Page\TestPage;
 
 class TestAction extends ActionBase
 {

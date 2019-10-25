@@ -6,9 +6,9 @@
  * @Date: 2019/10/22
  * @Time: 10:26 AM
  */
-namespace test\service\page;
+namespace Test\Service\Page;
 
-use test\service\data\TestData;
+use Test\Service\Data\TestData;
 
 class TestPage
 {
